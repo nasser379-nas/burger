@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم البرجر الذهبي | Golden Burger</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://img.icons8.com/color/48/000000/hamburger.png" alt="Logo">
+                <span>البرجر الذهبي</span>
+            </div>
+            <div class="nav-links">
+                <a href="#menu" class="active">القائمة</a>
+                <a href="#hakkimizda">من نحن</a>
+                <a href="#iletisim">اتصل بنا</a>
+            </div>
+            <div class="sepet-ikon" onclick="sepetiGoster()">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="sepetSayisi">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">🔥 الأكثر مبيعاً في سوريا</span>
+            <h1>أشهى وألذ أنواع البرجر</h1>
+            <p>مكونات طازجة 100% • لحم بلدي فاخر • صلصات سرية</p>
+            <button class="btn-hero" onclick="menuyeGit()">
+                اطلب الآن
+                <i class="fas fa-arrow-down"></i>
+            </button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">+50K</span>
+                <span class="stat-label">زبون سعيد</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">4.9</span>
+                <span class="stat-label">تقييم العملاء</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">30min</span>
+                <span class="stat-label">توصيل سريع</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menü Bölümü -->
+    <section id="menu" class="menu-section">
+        <div class="menu-header">
+            <h2>قائمتنا الشهية</h2>
+            <p>اختر من بين أشهى الأطباق المحضرة بحب</p>
+        </div>
+
+        <!-- Kategori Filtreleri -->
+        <div class="kategori-filtreleri">
+            <button class="filtre-btn active" onclick="filtrele('hepsi', this)">الكل</button>
+            <button class="filtre-btn" onclick="filtrele('burger', this)">🍔 برجر</button>
+            <button class="filtre-btn" onclick="filtrele('icecek', this)">🥤 مشروبات</button>
+            <button class="filtre-btn" onclick="filtrele('yan-urun', this)">🍟 أطباق جانبية</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <!-- Ürünler JavaScript ile buraya gelecek -->
+        </div>
+    </section>
+
+    <!-- Hakkımızda -->
+    <section id="hakkimizda" class="hakkimizda">
+        <div class="hakkimizda-content">
+            <h2>قصتنا</h2>
+            <p>منذ 2015 ونحن نقدم ألذ أنواع البرجر في سوريا. نفخر باستخدام أجود المكونات الطازجة واللحوم البلدية الفاخرة.</p>
+            <div class="ozellikler">
+                <div class="ozellik">
+                    <i class="fas fa-check-circle"></i>
+                    <span>لحم طازج يومياً</span>
+                </div>
+                <div class="ozellik">
+                    <i class="fas fa-check-circle"></i>
+                    <span>خضروات عضوية</span>
+                </div>
+                <div class="ozellik">
+                    <i class="fas fa-check-circle"></i>
+                    <span>صلصات سرية</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim -->
+    <section id="iletisim" class="iletisim">
+        <div class="iletisim-content">
+            <h2>تواصل معنا</h2>
+            <div class="iletisim-bilgileri">
+                <div class="iletisim-kart">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>العنوان</h3>
+                    <p>دمشق، شارع الحمراء</p>
+                </div>
+                <div class="iletisim-kart">
+                    <i class="fas fa-phone"></i>
+                    <h3>الهاتف</h3>
+                    <p>+963 985 795 832</p>
+                </div>
+                <div class="iletisim-kart">
+                    <i class="fas fa-clock"></i>
+                    <h3>ساعات العمل</h3>
+                    <p>يومياً: 11:00 - 23:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+    </footer>
+
+    <!-- Sepet Modal -->
+    <div id="sepetModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>سلة المشتريات</h2>
+                <span class="close" onclick="sepetiKapat()">&times;</span>
+            </div>
+            <div class="modal-body" id="sepetUrunleri">
+                <!-- Sepet ürünleri buraya gelecek -->
+            </div>
+            <div class="modal-footer">
+                <div class="sepet-toplam">
+                    <span>المجموع الكلي:</span>
+                    <span id="toplamFiyat">0</span>
+                    <span>ل.س</span>
+                </div>
+                <button class="btn-siparis" onclick="siparisFormunuGoster()">
+                    إتمام الطلب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sipariş Formu Modal -->
+    <div id="siparisModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>معلومات الطلب</h2>
+                <span class="close" onclick="siparisFormunuKapat()">&times;</span>
+            </div>
+            <div class="modal-body scrollable">
+                <form id="siparisFormu">
+                    <div class="form-group">
+                        <label>الاسم الكامل *</label>
+                        <input type="text" id="isim" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف *</label>
+                        <input type="tel" id="telefon" placeholder="09XXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label>نوع الطلب *</label>
+                        <div class="siparis-tipi-secimi">
+                            <label class="radio-kart">
+                                <input type="radio" name="siparisTipi" value="restoranda" checked>
+                                <i class="fas fa-utensils"></i>
+                                <span>في المطعم</span>
+                            </label>
+                            <label class="radio-kart">
+                                <input type="radio" name="siparisTipi" value="paket">
+                                <i class="fas fa-motorcycle"></i>
+                                <span>توصيل</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="adresGroup" style="display:none;">
+                        <label>العنوان *</label>
+                        <textarea id="adres" rows="2" placeholder="أدخل عنوانك بالتفصيل"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>ملاحظات إضافية</label>
+                        <textarea id="not" rows="2" placeholder="أي طلبات خاصة؟"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-siparis" onclick="whatsappGonder()">
+                    إتمام الطلب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
